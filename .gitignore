@@ -1,0 +1,15 @@
+# Finder and Windows metadata
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Installer state containing local paths
+.last_*
+
+# Generated backups and launcher apps
+PerformanceDisplay_BACKUP_*/
+*.app/
+
+# Generated archives and logs
+*.zip
+*.log
