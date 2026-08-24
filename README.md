@@ -1,3 +1,4 @@
+<img width="1470" height="956" alt="Screenshot 2026-08-24 at 22 51 17" src="https://github.com/user-attachments/assets/17abdbda-b596-4bad-bf92-404752751227" />
 # Traktor Performance Display
 
 An unofficial standalone performance display for Traktor Pro 4, implemented as a QML patch with guided installers for macOS and Windows.
