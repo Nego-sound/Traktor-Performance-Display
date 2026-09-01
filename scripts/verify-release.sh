@@ -2,7 +2,8 @@
 set -euo pipefail
 
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
-VERSION="v0.18.23"
+LATEST_VERSION="v0.18.24"
+BASE_PAYLOAD_VERSION="v0.18.23"
 
 FILES=(
   D2.qml
@@ -55,8 +56,15 @@ for file in "${FILES[@]}"; do
 done
 
 bash -n \
+  "$ROOT/macOS/Install_Traktor_Performance_Display_v0_18_24.command" \
   "$ROOT/macOS/Install_Traktor_Performance_Display_v0_18_23.command" \
   "$ROOT/macOS/Uninstall_Traktor_Performance_Display_v0_18_23.command"
+
+grep -q 'VERSION="v0.18.24"' "$ROOT/macOS/Install_Traktor_Performance_Display_v0_18_24.command"
+grep -q 'id: channelVu' "$ROOT/macOS/Install_Traktor_Performance_Display_v0_18_24.command"
+grep -q 'id: masterVu' "$ROOT/macOS/Install_Traktor_Performance_Display_v0_18_24.command"
+grep -q 'property var barMarkers' "$ROOT/macOS/Install_Traktor_Performance_Display_v0_18_24.command"
+grep -q 'e4d4f0c1e749b48f2a531e55a39fc284f377fd4d' "$ROOT/macOS/Install_Traktor_Performance_Display_v0_18_24.command"
 
 if find "$ROOT" -type f \( -name '.DS_Store' -o -name '.last_*' \) -print -quit | grep -q .; then
   echo "Local state or metadata is present in the release tree." >&2
@@ -66,4 +74,4 @@ fi
 grep -q 'StandaloneDisplay4507' "$ROOT/macOS/payload/D2.qml"
 grep -q 'NativeDisplayWindow.qml' "$ROOT/macOS/payload/D2.qml"
 
-echo "Traktor Performance Display $VERSION release checks passed."
+echo "Traktor Performance Display $LATEST_VERSION release checks passed (base payload $BASE_PAYLOAD_VERSION)."
