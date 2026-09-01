@@ -1,4 +1,4 @@
-TRAKTOR PERFORMANCE DISPLAY v0.18.23 — macOS DISTRIBUTABLE
+TRAKTOR PERFORMANCE DISPLAY v0.18.24 — macOS DISTRIBUTABLE
 ==========================================================
 
 TARGET
@@ -11,7 +11,7 @@ RECOMMENDED INSTALL
 2. Duplicate your clean Traktor Pro 4.5.0.7 app yourself in Finder.
 3. Rename that duplicate if desired.
 4. Run:
-     Install_Traktor_Performance_Display_v0_18_23.command
+     Install_Traktor_Performance_Display_v0_18_24.command
 5. Drag the exact duplicate .app into the installer.
 6. Type Y or YES when the installer shows the correct target.
 
@@ -19,11 +19,13 @@ THE INSTALLER DOES THE DIAGNOSTICS
 ----------------------------------
 You do not need to run grep, hash, or Terminal diagnostic commands.
 
-The installer automatically:
+The v0.18.24 installer automatically:
+- downloads the pinned v0.18.23 base payload from GitHub when no local payload folder is beside it;
 - verifies the selected D2.qml is the supported Traktor 4.5.0.7 file (or an existing v0.18.23-patched file);
 - backs up current D2/performance-display files;
 - installs all eight QML files;
-- verifies the SHA-256 of every installed file;
+- verifies the SHA-256 of every base payload file;
+- applies and verifies the v0.18.24 UI and VU-meter changes;
 - verifies the StandaloneDisplay4507 hook exists in D2.qml;
 - verifies D2.qml references NativeDisplayWindow.qml;
 - creates a local Finder-launchable wrapper app beside the modified Traktor;
@@ -70,7 +72,4 @@ the installer installs:
 
 ROLLBACK
 --------
-Run:
-  Uninstall_Traktor_Performance_Display_v0_18_23.command
-
-The rollback restores the latest backup and removes the generated launcher app if it was recorded.
+The v0.18.24 installer creates a timestamped backup inside the selected Traktor app before changing files. Keep that backup until you have verified the modified copy. The existing v0.18.23 uninstaller remains available for installations made with the earlier full package.
